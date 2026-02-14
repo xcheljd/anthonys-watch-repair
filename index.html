@@ -896,24 +896,16 @@
             list-style: none;
         }
 
-        .contact-details li {
+        .contact-details div {
             display: flex;
-            gap: 1.25rem;
-            padding: 1.25rem 0;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1.75rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
-        .contact-details li:last-child {
+        .contact-details div:last-child {
             border-bottom: none;
-        }
-
-        .contact-icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .contact-label {
@@ -922,7 +914,6 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 0.25rem;
         }
 
         .contact-value {

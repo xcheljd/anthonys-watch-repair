@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony's Watch & Jewelry Repair | Henderson, NV</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Professional watch and jewelry repair in Henderson, NV. Family-owned for 24+ years. Expert repairs, gold buying, and precision service.">
+    <meta name="keywords" content="watch repair, jewelry repair, Henderson, Las Vegas, gold buying, Anthony's, antique watches">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Anthony's Watch & Jewelry Repair | Henderson, NV">
+    <meta property="og:description" content="Professional watch and jewelry repair. Family-owned for 24+ years.">
+    <meta property="og:url" content="https://anthonyswatchrepair.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⌚%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #c9a227;
+            --gold-light: #e8d48b;
+            --gold-dark: #8b7014;
+            --navy: #1a1f3c;
+            --navy-light: #2a3050;
+            --cream: #faf8f5;
+            --cream-dark: #f0ebe3;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --cream: #12121a;
+            --cream-dark: #1a1a25;
+            --text-dark: #f0f0f5;
+            --text-muted: #a0a0b0;
+            --white: #1a1f3c;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            z-index: 9999;
+            text-decoration: none;
+            font-weight: 600;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: var(--gold);
+        }
+
+        .theme-toggle:hover svg {
+            fill: var(--navy);
+        }
+
+        .theme-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold);
+            transition: fill 0.3s;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 31, 60, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23c9a227' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Services */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--cream-dark);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1.25rem;
+            text-align: left;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--navy);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--cream-dark);
+        }
+
+        .contact-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+        }
+
+        .hours-list {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 0.35rem 0;
+            color: var(--text-muted);
+        }
+
+        .hours-list .closed {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        footer .gold {
+            color: var(--gold);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .btn-outline {
+                display: block;
+                margin: 1rem auto 0;
+                margin-left: 0;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .theme-toggle {
+                top: auto;
+                bottom: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+        <svg viewBox="0 0 24 24" class="moon-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo"><span>Anthony's</span> Watch & Jewelry</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">⌚ EST. 2002 • 24+ YEARS</span>
+                <h1><span>Precision</span> Watch & Jewelry Repair</h1>
+                <p>Family-owned and trusted by Henderson for over two decades. Expert craftsmanship, honest service, and repairs done right.</p>
+                <a href="#contact" class="btn btn-primary">Visit Us</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Craftsmanship You Can Trust</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>For over 24 years, Anthony and Maricarmen have been serving the Henderson and Las Vegas community with expert watch and jewelry repair. What started as a small family business has grown into one of the most trusted repair shops in the valley.</p>
+                        <p>We treat every timepiece and piece of jewelry as if it were our own — with precision, care, and respect. Whether it's a treasured family heirloom or a modern luxury watch, we have the expertise to restore it to perfection.</p>
+                        <p>Our reputation is built on honesty, quality work, and fair prices. That's why our customers have trusted us for generations.</p>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">⌚</div>
+                            <div class="feature-title">24+ Years</div>
+                            <div class="feature-desc">In business</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">⭐</div>
+                            <div class="feature-title">4.8 Rating</div>
+                            <div class="feature-desc">On Yelp</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🏠</div>
+                            <div class="feature-title">Family Owned</div>
+                            <div class="feature-desc">Local business</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">💎</div>
+                            <div class="feature-title">Gold Buyer</div>
+                            <div class="feature-desc">Fair prices</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Services</span>
+                    <h2 class="section-title">What We Offer</h2>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">⌚</div>
+                        <h3>Watch Repair</h3>
+                        <p>Expert repair services for all types of watches, from vintage heirlooms to modern timepieces.</p>
+                        <ul class="service-list">
+                            <li>Movement repair & service</li>
+                            <li>Battery replacement</li>
+                            <li>Crystal replacement</li>
+                            <li>Band & strap repair</li>
+                            <li>Water seal testing</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">💍</div>
+                        <h3>Jewelry Repair</h3>
+                        <p>Skilled craftsmanship to restore and repair your precious jewelry pieces.</p>
+                        <ul class="service-list">
+                            <li>Ring resizing</li>
+                            <li>Stone replacement</li>
+                            <li>Prong repair</li>
+                            <li>Chain soldering</li>
+                            <li>Professional cleaning</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>We Buy Gold</h3>
+                        <p>Turn your unwanted gold into cash. We offer competitive prices with honest evaluations.</p>
+                        <ul class="service-list">
+                            <li>Gold jewelry</li>
+                            <li>Coins & bars</li>
+                            <li>Scrap gold</li>
+                            <li>On-the-spot payment</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" style="color: var(--gold);">Reviews</span>
+                    <h2 class="section-title">What Our Customers Say</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I've known Anthony for over 40 years. He and his wife are honest and very kind. They do expert work — I've had many pieces repaired and they always exceed expectations."</p>
+                        <span class="testimonial-author">— Local Customer</span>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Finally found a reputable watch repair shop not in a mall. Anthony fixed my vintage watch that two other shops couldn't. Highly recommend!"</p>
+                        <span class="testimonial-author">— Happy Customer</span>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Professional, honest, and fair prices. They took the time to explain what was wrong with my watch and fixed it perfectly. Will definitely be back."</p>
+                        <span class="testimonial-author">— Satisfied Client</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Contact</span>
+                    <h2 class="section-title">Visit Us Today</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>📍 Location</h3>
+                        <p><strong>2633 Windmill Pkwy</strong></p>
+                        <p>Henderson, NV 89074</p>
+                        <p style="margin-top: 1rem;"><a href="https://maps.google.com/?q=2633+Windmill+Pkwy,+Henderson,+NV+89074" target="_blank" rel="noopener noreferrer">Get Directions →</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>🕐 Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday</span> <span>10am – 6pm</span></li>
+                            <li><span>Tuesday</span> <span>10am – 6pm</span></li>
+                            <li><span>Wednesday</span> <span>10am – 6pm</span></li>
+                            <li><span>Thursday</span> <span>10am – 6pm</span></li>
+                            <li><span>Friday</span> <span>10am – 6pm</span></li>
+                            <li><span>Saturday</span> <span>10am – 6pm</span></li>
+                            <li><span>Sunday</span> <span class="closed">Closed</span></li>
+                        </ul>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📞 Contact</h3>
+                        <p><a href="tel:+17027950304">(702) 795-0304</a></p>
+                        <p style="margin-top: 1rem;">Payment Methods:</p>
+                        <p style="font-size: 0.9rem;">Credit Cards • Apple Pay • Android Pay</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">Wheelchair Accessible</p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="map-container" aria-label="Map showing Anthony's Watch & Jewelry Repair location">
+                    <iframe 
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Anthony's Watch & Jewelry Repair location map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.5!2d-115.1!3d36.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDAzJzAwLjAiTiAxMTXCsDA2JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span>. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Family-owned. Trusted for 24+ years.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</body>
+</html>

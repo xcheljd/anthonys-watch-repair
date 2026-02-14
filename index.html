@@ -6,45 +6,37 @@
     <title>Anthony's Watch & Jewelry Repair | Henderson, NV</title>
     
     <!-- SEO -->
-    <meta name="description" content="Professional watch and jewelry repair in Henderson, NV. Family-owned for 24+ years. Expert repairs, gold buying, and precision service.">
-    <meta name="keywords" content="watch repair, jewelry repair, Henderson, Las Vegas, gold buying, Anthony's, antique watches">
+    <meta name="description" content="Master watchmakers and jewelers serving Henderson for 24+ years. Expert repairs, gold buying, and precision craftsmanship you can trust.">
+    <meta name="keywords" content="watch repair, jewelry repair, Henderson, Las Vegas, gold buying, master watchmaker, antique watches">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Anthony's Watch & Jewelry Repair | Henderson, NV">
-    <meta property="og:description" content="Professional watch and jewelry repair. Family-owned for 24+ years.">
-    <meta property="og:url" content="https://anthonyswatchrepair.com">
+    <meta property="og:title" content="Anthony's Watch & Jewelry Repair | Master Craftsmanship Since 2002">
+    <meta property="og:description" content="Family-owned for 24+ years. Expert watch and jewelry repair with old-world craftsmanship.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⌚%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23c9a227' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='50' y2='25' stroke='%23c9a227' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='50' y1='50' x2='70' y2='50' stroke='%23c9a227' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%23c9a227'/%3E%3C/svg%3E">
     
-    <!-- Fonts -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --gold: #c9a227;
             --gold-light: #e8d48b;
-            --gold-dark: #8b7014;
-            --navy: #1a1f3c;
-            --navy-light: #2a3050;
-            --cream: #faf8f5;
-            --cream-dark: #f0ebe3;
+            --gold-glow: rgba(201, 162, 39, 0.3);
+            --navy: #0d1020;
+            --navy-light: #1a1f3c;
+            --cream: #faf8f3;
+            --cream-warm: #f5f0e8;
             --text-dark: #1a1a1a;
-            --text-muted: #5a5a5a;
+            --text-muted: #6b6b7a;
             --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="dark"] {
-            --cream: #12121a;
-            --cream-dark: #1a1a25;
-            --text-dark: #f0f0f5;
-            --text-muted: #a0a0b0;
-            --white: #1a1f3c;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
         }
 
         * {
@@ -58,10 +50,11 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: var(--font-body);
             background: var(--cream);
             color: var(--text-dark);
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* Skip Link */
@@ -73,51 +66,14 @@
             background: var(--gold);
             color: var(--navy);
             padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 4px;
             z-index: 9999;
             text-decoration: none;
             font-weight: 600;
             transition: top 0.2s;
         }
 
-        .skip-link:focus {
-            top: 1rem;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 2px solid var(--gold);
-            cursor: pointer;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            background: var(--gold);
-        }
-
-        .theme-toggle:hover svg {
-            fill: var(--navy);
-        }
-
-        .theme-toggle svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--gold);
-            transition: fill 0.3s;
-        }
+        .skip-link:focus { top: 1rem; }
 
         /* Navigation */
         nav {
@@ -125,48 +81,100 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(26, 31, 60, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: rgba(13, 16, 32, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
         }
 
-        .nav-content {
-            max-width: 1200px;
+        .nav-inner {
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.25rem 3rem;
         }
 
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             text-decoration: none;
         }
 
-        .logo span {
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            position: relative;
+        }
+
+        .logo-mark svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-mark .hand {
+            transform-origin: 50px 50px;
+            animation: tick 60s linear infinite;
+        }
+
+        .logo-mark .hand-minute {
+            animation-duration: 3600s;
+        }
+
+        @keyframes tick {
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
             color: var(--white);
+            letter-spacing: 0.02em;
+        }
+
+        .logo-text span {
+            color: var(--gold);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--white);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero */
@@ -174,74 +182,149 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             position: relative;
+            background: var(--navy);
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23c9a227' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
-            opacity: 0.5;
+            inset: 0;
+            opacity: 0.08;
+            background-image: 
+                repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 40px, rgba(201, 162, 39, 0.03) 40px, rgba(201, 162, 39, 0.03) 80px);
         }
+
+        .hero-watch {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-watch svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-watch .outer-ring {
+            stroke: var(--gold);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .hero-watch .inner-ring {
+            stroke: var(--gold);
+            stroke-width: 0.5;
+            fill: none;
+            stroke-dasharray: 4 8;
+        }
+
+        .hero-watch .hand-hour {
+            stroke: var(--gold);
+            stroke-width: 2;
+            stroke-linecap: round;
+            transform-origin: 250px 250px;
+            animation: hourHand 43200s linear infinite;
+        }
+
+        .hero-watch .hand-minute {
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            transform-origin: 250px 250px;
+            animation: minuteHand 3600s linear infinite;
+        }
+
+        .hero-watch .hand-second {
+            stroke: var(--gold);
+            stroke-width: 0.5;
+            stroke-linecap: round;
+            transform-origin: 250px 250px;
+            animation: secondHand 60s linear infinite;
+        }
+
+        @keyframes hourHand { to { transform: rotate(360deg); } }
+        @keyframes minuteHand { to { transform: rotate(360deg); } }
+        @keyframes secondHand { to { transform: rotate(360deg); } }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 700px;
+            padding: 8rem 3rem 4rem;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(201, 162, 39, 0.2);
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-eyebrow span {
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
         }
 
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 400;
             color: var(--white);
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
 
-        .hero h1 span {
+        .hero h1 em {
+            font-style: italic;
             color: var(--gold);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 550px;
-            margin: 0 auto 2.5rem;
+        .hero-text {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 480px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
         .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2.25rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 1rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+            border-radius: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -249,214 +332,361 @@
             color: var(--navy);
         }
 
-        .btn-primary:hover {
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
             background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.4);
+            transform: translateX(-101%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(0);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            margin-left: 1rem;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .btn-outline:hover {
-            background: var(--gold);
-            color: var(--navy);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--navy-light);
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+            padding: 2.5rem 3rem;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 50px;
+            background: rgba(201, 162, 39, 0.15);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Sections */
         section {
-            padding: 5rem 2rem;
+            padding: 7rem 3rem;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
 
-        .section-label {
-            font-size: 0.85rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-eyebrow span {
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: block;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
         }
 
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
             color: var(--text-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .section-title em {
+            font-style: italic;
         }
 
         /* About */
         .about {
-            background: var(--white);
+            background: var(--cream);
         }
 
-        .about-content {
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 6rem;
             align-items: center;
         }
 
-        .about-text p {
+        .about-content p {
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.9;
         }
 
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        .about-content p:first-of-type {
+            font-size: 1.25rem;
+            color: var(--text-dark);
         }
 
-        .feature {
-            background: var(--cream);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid var(--cream-dark);
+        .about-signature {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-title {
-            font-weight: 600;
+        .about-signature p {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-style: italic;
             color: var(--text-dark);
             margin-bottom: 0.25rem;
         }
 
-        .feature-desc {
+        .about-signature span {
+            font-family: var(--font-body);
             font-size: 0.85rem;
+            font-style: normal;
             color: var(--text-muted);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            aspect-ratio: 4/5;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .about-image-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--gold) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--gold) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .about-image-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+        }
+
+        .about-image-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 0.5;
         }
 
         /* Services */
         .services {
-            background: var(--cream);
+            background: var(--navy);
+            position: relative;
+        }
+
+        .services .section-title {
+            color: var(--white);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
         .service-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            border: 1px solid var(--cream-dark);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(201, 162, 39, 0.3);
         }
 
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.75rem;
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 400;
+            color: rgba(201, 162, 39, 0.15);
+            line-height: 1;
+            margin-bottom: 1.5rem;
         }
 
         .service-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1rem;
         }
 
         .service-card p {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         .service-list {
             list-style: none;
-            margin-top: 1.25rem;
-            text-align: left;
         }
 
         .service-list li {
-            padding: 0.5rem 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
 
         .service-list li::before {
-            content: '✓';
+            content: '→';
             color: var(--gold);
-            font-weight: bold;
+            font-size: 0.8rem;
         }
 
         /* Testimonials */
         .testimonials {
-            background: var(--navy);
-        }
-
-        .testimonials .section-title {
-            color: var(--white);
+            background: var(--cream-warm);
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
         .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(201, 162, 39, 0.2);
+            background: var(--white);
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
         }
 
-        .testimonial-text {
-            color: rgba(255, 255, 255, 0.9);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
+        .testimonial::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 8rem;
             color: var(--gold);
-            font-weight: 600;
-            font-size: 0.95rem;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            line-height: 1;
         }
 
         .testimonial-stars {
             color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
         }
 
         /* Contact */
@@ -464,129 +694,217 @@
             background: var(--cream);
         }
 
-        .contact-grid {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
-        .contact-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--cream-dark);
+        .contact-info {
+            padding-right: 3rem;
         }
 
-        .contact-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
             color: var(--text-dark);
             margin-bottom: 1rem;
         }
 
-        .contact-card p {
+        .contact-info p {
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
-        .contact-card a {
-            color: var(--gold-dark);
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 24px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        .contact-value a {
+            color: inherit;
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .contact-card a:hover {
+        .contact-value a:hover {
             color: var(--gold);
         }
 
-        .hours-list {
-            list-style: none;
-            text-align: left;
-            display: inline-block;
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 2rem;
         }
 
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            padding: 0.35rem 0;
+        .hours-grid span {
+            font-size: 0.95rem;
             color: var(--text-muted);
         }
 
-        .hours-list .closed {
-            color: var(--text-muted);
-            opacity: 0.7;
+        .hours-grid span:last-child {
+            text-align: right;
+            color: var(--text-dark);
         }
 
-        .map-container {
-            margin-top: 3rem;
-            border-radius: 16px;
+        .hours-closed {
+            color: var(--text-muted) !important;
+            opacity: 0.6;
+        }
+
+        .contact-map {
+            background: var(--navy);
+            height: 400px;
+            position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
         }
 
-        .map-container iframe {
+        .contact-map iframe {
             width: 100%;
-            height: 300px;
+            height: 100%;
             border: 0;
-            display: block;
+            filter: grayscale(100%) contrast(1.1);
+            opacity: 0.8;
         }
 
         /* Footer */
         footer {
             background: var(--navy);
-            padding: 2.5rem;
+            padding: 3rem;
             text-align: center;
         }
 
         footer p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
         }
 
         footer .gold {
             color: var(--gold);
         }
 
-        /* Mobile */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-watch {
+                opacity: 0.08;
+                right: -10%;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2)::after {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+
         @media (max-width: 768px) {
+            .nav-inner {
+                padding: 1rem 1.5rem;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .hero-content {
+                padding: 7rem 1.5rem 3rem;
             }
 
-            .about-features {
+            .hero-watch {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-bar {
+                padding: 2rem 1.5rem;
+            }
+
+            .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
             }
 
-            .btn-outline {
-                display: block;
-                margin: 1rem auto 0;
-                margin-left: 0;
+            .stat::after {
+                display: none !important;
+            }
+
+            .stat-number {
+                font-size: 2.25rem;
             }
 
             section {
-                padding: 3.5rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
 
-            .theme-toggle {
-                top: auto;
-                bottom: 1rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
+            .service-card {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -594,17 +912,21 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
-        <svg viewBox="0 0 24 24" class="moon-icon">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-    </button>
-
     <!-- Navigation -->
     <nav>
-        <div class="nav-content">
-            <a href="#" class="logo"><span>Anthony's</span> Watch & Jewelry</a>
+        <div class="nav-inner">
+            <a href="#" class="logo" aria-label="Anthony's Watch & Jewelry Repair">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a227" stroke-width="0.5" stroke-dasharray="2 4"/>
+                        <line class="hand hand-minute" x1="50" y1="50" x2="50" y2="20" stroke="#c9a227" stroke-width="1.5" stroke-linecap="round"/>
+                        <line class="hand hand-hour" x1="50" y1="50" x2="72" y2="50" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="3" fill="#c9a227"/>
+                    </svg>
+                </div>
+                <div class="logo-text"><span>Anthony's</span> Watch & Jewelry</div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -617,48 +939,81 @@
     <main id="main-content">
         <!-- Hero -->
         <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-watch">
+                <svg viewBox="0 0 500 500">
+                    <circle class="outer-ring" cx="250" cy="250" r="240"/>
+                    <circle class="inner-ring" cx="250" cy="250" r="200"/>
+                    <line class="hand-hour" x1="250" y1="250" x2="250" y2="120"/>
+                    <line class="hand-minute" x1="250" y1="250" x2="370" y2="250"/>
+                    <line class="hand-second" x1="250" y1="250" x2="250" y2="80"/>
+                    <circle cx="250" cy="250" r="8" fill="#c9a227"/>
+                </svg>
+            </div>
             <div class="hero-content">
-                <span class="hero-badge">⌚ EST. 2002 • 24+ YEARS</span>
-                <h1><span>Precision</span> Watch & Jewelry Repair</h1>
-                <p>Family-owned and trusted by Henderson for over two decades. Expert craftsmanship, honest service, and repairs done right.</p>
-                <a href="#contact" class="btn btn-primary">Visit Us</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
+                <div class="hero-eyebrow">
+                    <span>Master Watchmakers • Est. 2002</span>
+                </div>
+                <h1>Precision <em>Timepiece</em><br>& Jewelry Repair</h1>
+                <p class="hero-text">Family-owned for over two decades. We restore treasured heirlooms and everyday pieces with the same care and precision. Old-world craftsmanship, modern expertise.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary"><span>Visit Our Shop</span></a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
             </div>
         </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">24+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">Yelp Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">164+</div>
+                    <div class="stat-label">Five-Star Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Family Owned</div>
+                </div>
+            </div>
+        </div>
 
         <!-- About -->
         <section class="about" id="about">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">About Us</span>
-                    <h2 class="section-title">Craftsmanship You Can Trust</h2>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>For over 24 years, Anthony and Maricarmen have been serving the Henderson and Las Vegas community with expert watch and jewelry repair. What started as a small family business has grown into one of the most trusted repair shops in the valley.</p>
-                        <p>We treat every timepiece and piece of jewelry as if it were our own — with precision, care, and respect. Whether it's a treasured family heirloom or a modern luxury watch, we have the expertise to restore it to perfection.</p>
-                        <p>Our reputation is built on honesty, quality work, and fair prices. That's why our customers have trusted us for generations.</p>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <div class="section-header">
+                            <div class="section-eyebrow"><span>Our Story</span></div>
+                            <h2 class="section-title">Craftsmanship <em>You</em> Can Trust</h2>
+                        </div>
+                        <p>For over 24 years, Anthony and Maricarmen have served Henderson with honest, expert watch and jewelry repair. What began as a small family shop has become one of the valley's most trusted names in restoration.</p>
+                        <p>We treat every timepiece as if it were our own—with precision, respect, and an unwavering commitment to quality. Whether it's a vintage family heirloom or a modern luxury watch, our expertise brings it back to life.</p>
+                        <div class="about-signature">
+                            <p>Anthony & Maricarmen</p>
+                            <span>Founders & Master Craftsmen</span>
+                        </div>
                     </div>
-                    <div class="about-features">
-                        <div class="feature">
-                            <div class="feature-icon">⌚</div>
-                            <div class="feature-title">24+ Years</div>
-                            <div class="feature-desc">In business</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">⭐</div>
-                            <div class="feature-title">4.8 Rating</div>
-                            <div class="feature-desc">On Yelp</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🏠</div>
-                            <div class="feature-title">Family Owned</div>
-                            <div class="feature-desc">Local business</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">💎</div>
-                            <div class="feature-title">Gold Buyer</div>
-                            <div class="feature-desc">Fair prices</div>
+                    <div class="about-image">
+                        <div class="about-image-frame">
+                            <div class="about-image-pattern"></div>
+                            <div class="about-image-icon">
+                                <svg viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="55"/>
+                                    <circle cx="60" cy="60" r="45"/>
+                                    <circle cx="60" cy="60" r="35"/>
+                                    <line x1="60" y1="60" x2="60" y2="25"/>
+                                    <line x1="60" y1="60" x2="90" y2="60"/>
+                                    <circle cx="60" cy="60" r="4" fill="currentColor"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -669,43 +1024,43 @@
         <section class="services" id="services">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Services</span>
-                    <h2 class="section-title">What We Offer</h2>
+                    <div class="section-eyebrow"><span>What We Do</span></div>
+                    <h2 class="section-title">Our <em>Services</em></h2>
                 </div>
                 <div class="services-grid">
                     <article class="service-card">
-                        <div class="service-icon">⌚</div>
+                        <div class="service-number">01</div>
                         <h3>Watch Repair</h3>
-                        <p>Expert repair services for all types of watches, from vintage heirlooms to modern timepieces.</p>
+                        <p>Expert repair services for all timepieces—from vintage pocket watches to modern luxury brands.</p>
                         <ul class="service-list">
-                            <li>Movement repair & service</li>
+                            <li>Movement service & overhaul</li>
                             <li>Battery replacement</li>
-                            <li>Crystal replacement</li>
+                            <li>Crystal & glass replacement</li>
                             <li>Band & strap repair</li>
                             <li>Water seal testing</li>
                         </ul>
                     </article>
                     <article class="service-card">
-                        <div class="service-icon">💍</div>
+                        <div class="service-number">02</div>
                         <h3>Jewelry Repair</h3>
-                        <p>Skilled craftsmanship to restore and repair your precious jewelry pieces.</p>
+                        <p>Skilled craftsmanship to restore and preserve your most precious pieces.</p>
                         <ul class="service-list">
                             <li>Ring resizing</li>
-                            <li>Stone replacement</li>
-                            <li>Prong repair</li>
-                            <li>Chain soldering</li>
+                            <li>Stone replacement & resetting</li>
+                            <li>Prong repair & retipping</li>
+                            <li>Chain & clasp repair</li>
                             <li>Professional cleaning</li>
                         </ul>
                     </article>
                     <article class="service-card">
-                        <div class="service-icon">💰</div>
+                        <div class="service-number">03</div>
                         <h3>We Buy Gold</h3>
-                        <p>Turn your unwanted gold into cash. We offer competitive prices with honest evaluations.</p>
+                        <p>Turn unwanted gold into cash with fair, honest appraisals.</p>
                         <ul class="service-list">
                             <li>Gold jewelry</li>
                             <li>Coins & bars</li>
                             <li>Scrap gold</li>
-                            <li>On-the-spot payment</li>
+                            <li>Same-day payment</li>
                         </ul>
                     </article>
                 </div>
@@ -716,24 +1071,24 @@
         <section class="testimonials" id="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label" style="color: var(--gold);">Reviews</span>
-                    <h2 class="section-title">What Our Customers Say</h2>
+                    <div class="section-eyebrow"><span>Reviews</span></div>
+                    <h2 class="section-title">What <em>Customers</em> Say</h2>
                 </div>
                 <div class="testimonials-grid">
                     <div class="testimonial">
                         <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"I've known Anthony for over 40 years. He and his wife are honest and very kind. They do expert work — I've had many pieces repaired and they always exceed expectations."</p>
-                        <span class="testimonial-author">— Local Customer</span>
+                        <p class="testimonial-text">"I've known Anthony for over 40 years. He and his wife are honest, kind, and do expert work. Every piece I've brought them has been restored beautifully."</p>
+                        <div class="testimonial-author">— Long-time Customer</div>
                     </div>
                     <div class="testimonial">
                         <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"Finally found a reputable watch repair shop not in a mall. Anthony fixed my vintage watch that two other shops couldn't. Highly recommend!"</p>
-                        <span class="testimonial-author">— Happy Customer</span>
+                        <p class="testimonial-text">"Finally found a reputable watch repair shop not in a mall. Anthony fixed my vintage watch that two other shops couldn't. True craftsmen."</p>
+                        <div class="testimonial-author">— Watch Collector</div>
                     </div>
                     <div class="testimonial">
                         <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"Professional, honest, and fair prices. They took the time to explain what was wrong with my watch and fixed it perfectly. Will definitely be back."</p>
-                        <span class="testimonial-author">— Satisfied Client</span>
+                        <p class="testimonial-text">"Professional, honest, and fair prices. They took time to explain what was wrong and fixed it perfectly. This is how all businesses should operate."</p>
+                        <div class="testimonial-author">— Satisfied Client</div>
                     </div>
                 </div>
             </div>
@@ -743,46 +1098,54 @@
         <section class="contact" id="contact">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Contact</span>
-                    <h2 class="section-title">Visit Us Today</h2>
+                    <div class="section-eyebrow"><span>Visit Us</span></div>
+                    <h2 class="section-title">Stop <em>By</em> Today</h2>
                 </div>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h3>📍 Location</h3>
-                        <p><strong>2633 Windmill Pkwy</strong></p>
-                        <p>Henderson, NV 89074</p>
-                        <p style="margin-top: 1rem;"><a href="https://maps.google.com/?q=2633+Windmill+Pkwy,+Henderson,+NV+89074" target="_blank" rel="noopener noreferrer">Get Directions →</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>🕐 Hours</h3>
-                        <ul class="hours-list">
-                            <li><span>Monday</span> <span>10am – 6pm</span></li>
-                            <li><span>Tuesday</span> <span>10am – 6pm</span></li>
-                            <li><span>Wednesday</span> <span>10am – 6pm</span></li>
-                            <li><span>Thursday</span> <span>10am – 6pm</span></li>
-                            <li><span>Friday</span> <span>10am – 6pm</span></li>
-                            <li><span>Saturday</span> <span>10am – 6pm</span></li>
-                            <li><span>Sunday</span> <span class="closed">Closed</span></li>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>We'd love to see you</h3>
+                        <p>Walk-ins welcome. No appointment necessary. Bring your timepieces and jewelry—we'll give you an honest assessment and fair quote.</p>
+                        <ul class="contact-details">
+                            <li>
+                                <span class="contact-icon">📍</span>
+                                <div>
+                                    <div class="contact-label">Location</div>
+                                    <div class="contact-value">2633 Windmill Pkwy<br>Henderson, NV 89074</div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="contact-icon">📞</span>
+                                <div>
+                                    <div class="contact-label">Phone</div>
+                                    <div class="contact-value"><a href="tel:+17027950304">(702) 795-0304</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="contact-icon">🕐</span>
+                                <div>
+                                    <div class="contact-label">Hours</div>
+                                    <div class="hours-grid">
+                                        <span>Mon</span><span>10am – 6pm</span>
+                                        <span>Tue</span><span>10am – 6pm</span>
+                                        <span>Wed</span><span>10am – 6pm</span>
+                                        <span>Thu</span><span>10am – 6pm</span>
+                                        <span>Fri</span><span>10am – 6pm</span>
+                                        <span>Sat</span><span>10am – 6pm</span>
+                                        <span>Sun</span><span class="hours-closed">Closed</span>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                    <div class="contact-card">
-                        <h3>📞 Contact</h3>
-                        <p><a href="tel:+17027950304">(702) 795-0304</a></p>
-                        <p style="margin-top: 1rem;">Payment Methods:</p>
-                        <p style="font-size: 0.9rem;">Credit Cards • Apple Pay • Android Pay</p>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">Wheelchair Accessible</p>
+                    <div class="contact-map">
+                        <iframe 
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Anthony's Watch & Jewelry Repair location"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.5!2d-115.1!3d36.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDAzJzAwLjAiTiAxMTXCsDA2JzAwLjAiVw!5e0!3m2!1sen!2sus">
+                        </iframe>
                     </div>
-                </div>
-
-                <!-- Map -->
-                <div class="map-container" aria-label="Map showing Anthony's Watch & Jewelry Repair location">
-                    <iframe 
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Anthony's Watch & Jewelry Repair location map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.5!2d-115.1!3d36.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDAzJzAwLjAiTiAxMTXCsDA2JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus">
-                    </iframe>
                 </div>
             </div>
         </section>
@@ -790,26 +1153,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span>. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Family-owned. Trusted for 24+ years.</p>
+        <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span> • Family-owned since 2002</p>
     </footer>
-
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
-    </script>
 </body>
 </html>

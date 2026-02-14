@@ -157,8 +157,10 @@
             --cream: #faf8f3;
             --cream-warm: #f5f0e8;
             --text-dark: #1a1a1a;
-            --text-muted: #6b6b7a;
+            --text-muted: #5a5a6a;
             --white: #ffffff;
+            --focus-outline: 3px solid #c9a227;
+            --focus-offset: 2px;
             
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'Inter', -apple-system, sans-serif;
@@ -182,6 +184,37 @@
             overflow-x: hidden;
         }
 
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Focus Styles */
+        a:focus,
+        button:focus,
+        [tabindex]:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-offset);
+        }
+
+        a:focus:not(:focus-visible),
+        button:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-offset);
+        }
+
         /* Skip Link */
         .skip-link {
             position: absolute;
@@ -198,7 +231,10 @@
             transition: top 0.2s;
         }
 
-        .skip-link:focus { top: 1rem; }
+        .skip-link:focus {
+            top: 1rem;
+            outline: none;
+        }
 
         /* Navigation */
         nav {
@@ -273,7 +309,7 @@
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -281,6 +317,7 @@
             text-transform: uppercase;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.25rem 0;
         }
 
         .nav-links a::after {
@@ -294,11 +331,13 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a:focus {
             color: var(--gold);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
             width: 100%;
         }
 
@@ -423,7 +462,7 @@
 
         .hero-text {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.75);
             max-width: 480px;
             margin-bottom: 3rem;
             font-weight: 300;
@@ -434,6 +473,7 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -450,11 +490,13 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--gold);
             color: var(--navy);
+            border: none;
         }
 
         .btn-primary::before {
@@ -466,7 +508,8 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .btn-primary:hover::before {
+        .btn-primary:hover::before,
+        .btn-primary:focus::before {
             transform: translateX(0);
         }
 
@@ -478,10 +521,11 @@
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover,
+        .btn-outline:focus {
             border-color: var(--gold);
             color: var(--gold);
         }
@@ -532,7 +576,7 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.65);
         }
 
         /* Sections */
@@ -711,12 +755,14 @@
             transition: height 0.4s ease;
         }
 
-        .service-card:hover {
+        .service-card:hover,
+        .service-card:focus-within {
             background: rgba(255, 255, 255, 0.04);
             border-color: rgba(201, 162, 39, 0.3);
         }
 
-        .service-card:hover::before {
+        .service-card:hover::before,
+        .service-card:focus-within::before {
             height: 100%;
         }
 
@@ -738,7 +784,7 @@
         }
 
         .service-card p {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
             line-height: 1.7;
@@ -753,7 +799,7 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.5rem 0;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
 
@@ -761,6 +807,7 @@
             content: '→';
             color: var(--gold);
             font-size: 0.8rem;
+            speak: never;
         }
 
         /* Testimonials */
@@ -791,6 +838,7 @@
             top: -20px;
             left: 20px;
             line-height: 1;
+            speak: never;
         }
 
         .testimonial-stars {
@@ -837,7 +885,7 @@
             margin-bottom: 1rem;
         }
 
-        .contact-info p {
+        .contact-info > p {
             color: var(--text-muted);
             margin-bottom: 2.5rem;
             font-size: 1.05rem;
@@ -861,8 +909,11 @@
 
         .contact-icon {
             width: 24px;
-            color: var(--gold);
+            height: 24px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-label {
@@ -885,29 +936,35 @@
             transition: color 0.2s;
         }
 
-        .contact-value a:hover {
+        .contact-value a:hover,
+        .contact-value a:focus {
             color: var(--gold);
+            text-decoration: underline;
         }
 
-        .hours-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem 2rem;
-        }
-
-        .hours-grid span {
+        /* Hours Table */
+        .hours-table {
+            border-collapse: collapse;
             font-size: 0.95rem;
+        }
+
+        .hours-table td {
+            padding: 0.25rem 0;
             color: var(--text-muted);
         }
 
-        .hours-grid span:last-child {
+        .hours-table td:first-child {
+            padding-right: 2rem;
+        }
+
+        .hours-table td:last-child {
             text-align: right;
             color: var(--text-dark);
         }
 
         .hours-closed {
             color: var(--text-muted) !important;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .contact-map {
@@ -931,13 +988,26 @@
         }
 
         footer p {
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
             letter-spacing: 0.05em;
         }
 
         footer .gold {
             color: var(--gold);
+        }
+
+        /* Visually Hidden (Screen Reader Only) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         /* Responsive */
@@ -1036,11 +1106,11 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="#" class="logo" aria-label="Anthony's Watch & Jewelry Repair">
-                <div class="logo-mark">
-                    <svg viewBox="0 0 100 100">
+            <a href="#" class="logo" aria-label="Anthony's Watch & Jewelry Repair - Home">
+                <div class="logo-mark" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a227" stroke-width="1.5"/>
                         <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a227" stroke-width="0.5" stroke-dasharray="2 4"/>
                         <line class="hand hand-minute" x1="50" y1="50" x2="50" y2="20" stroke="#c9a227" stroke-width="1.5" stroke-linecap="round"/>
@@ -1050,21 +1120,21 @@
                 </div>
                 <div class="logo-text"><span>Anthony's</span> Watch & Jewelry</div>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="#testimonials" role="menuitem">Reviews</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <!-- Hero -->
-        <section class="hero">
-            <div class="hero-bg"></div>
-            <div class="hero-watch">
-                <svg viewBox="0 0 500 500">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-watch" aria-hidden="true">
+                <svg viewBox="0 0 500 500" aria-hidden="true">
                     <circle class="outer-ring" cx="250" cy="250" r="240"/>
                     <circle class="inner-ring" cx="250" cy="250" r="200"/>
                     <line class="hand-hour" x1="250" y1="250" x2="250" y2="120"/>
@@ -1077,8 +1147,8 @@
                 <div class="hero-eyebrow">
                     <span>Master Watchmakers • Est. 1984</span>
                 </div>
-                <h1>Precision <em>Timepiece</em><br>& Jewelry Repair</h1>
-                <p class="hero-text">Family-owned for over two decades. We restore treasured heirlooms and everyday pieces with the same care and precision. Old-world craftsmanship, modern expertise.</p>
+                <h1 id="hero-heading">Precision <em>Timepiece</em><br>& Jewelry Repair</h1>
+                <p class="hero-text">Family-owned for over 40 years. We restore treasured heirlooms and everyday pieces with the same care and precision. Old-world craftsmanship, modern expertise.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary"><span>Visit Our Shop</span></a>
                     <a href="#services" class="btn btn-outline">Our Services</a>
@@ -1087,48 +1157,49 @@
         </section>
 
         <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-number">40+</div>
+        <section class="stats-bar" aria-labelledby="stats-heading">
+            <h2 id="stats-heading" class="sr-only">Business Highlights</h2>
+            <div class="stats-grid" role="list">
+                <div class="stat" role="listitem">
+                    <div class="stat-number" aria-label="40 plus">40+</div>
                     <div class="stat-label">Years in Business</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">4.8</div>
+                <div class="stat" role="listitem">
+                    <div class="stat-number" aria-label="4.8 out of 5 stars">4.8</div>
                     <div class="stat-label">Yelp Rating</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">164+</div>
+                <div class="stat" role="listitem">
+                    <div class="stat-number" aria-label="164 plus">164+</div>
                     <div class="stat-label">Five-Star Reviews</div>
                 </div>
-                <div class="stat">
+                <div class="stat" role="listitem">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">Family Owned</div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- About -->
-        <section class="about" id="about">
+        <section class="about" id="about" aria-labelledby="about-heading">
             <div class="container">
                 <div class="about-grid">
                     <div class="about-content">
                         <div class="section-header">
                             <div class="section-eyebrow"><span>Our Story</span></div>
-                            <h2 class="section-title">Craftsmanship <em>You</em> Can Trust</h2>
+                            <h2 class="section-title" id="about-heading">Craftsmanship <em>You</em> Can Trust</h2>
                         </div>
                         <p>For over 40 years, Anthony has served Henderson with honest, expert watch and jewelry repair. What began as a small family shop has become one of the valley's most trusted names in restoration.</p>
                         <p>We treat every timepiece as if it were our own—with precision, respect, and an unwavering commitment to quality. Whether it's a vintage family heirloom or a modern luxury watch, our expertise brings it back to life.</p>
                         <div class="about-signature">
                             <p>Anthony</p>
-                            <span>Founders & Master Craftsmen</span>
+                            <span>Founder & Master Craftsman</span>
                         </div>
                     </div>
-                    <div class="about-image">
+                    <div class="about-image" aria-hidden="true">
                         <div class="about-image-frame">
                             <div class="about-image-pattern"></div>
                             <div class="about-image-icon">
-                                <svg viewBox="0 0 120 120">
+                                <svg viewBox="0 0 120 120" aria-hidden="true">
                                     <circle cx="60" cy="60" r="55"/>
                                     <circle cx="60" cy="60" r="45"/>
                                     <circle cx="60" cy="60" r="35"/>
@@ -1144,16 +1215,16 @@
         </section>
 
         <!-- Services -->
-        <section class="services" id="services">
+        <section class="services" id="services" aria-labelledby="services-heading">
             <div class="container">
                 <div class="section-header">
                     <div class="section-eyebrow"><span>What We Do</span></div>
-                    <h2 class="section-title">Our <em>Services</em></h2>
+                    <h2 class="section-title" id="services-heading">Our <em>Services</em></h2>
                 </div>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <div class="service-number">01</div>
-                        <h3>Watch Repair</h3>
+                <div class="services-grid" role="list">
+                    <article class="service-card" role="listitem" aria-labelledby="service-watch">
+                        <div class="service-number" aria-hidden="true">01</div>
+                        <h3 id="service-watch">Watch Repair</h3>
                         <p>Expert repair services for all timepieces—from vintage pocket watches to modern luxury brands.</p>
                         <ul class="service-list">
                             <li>Movement service & overhaul</li>
@@ -1163,9 +1234,9 @@
                             <li>Water seal testing</li>
                         </ul>
                     </article>
-                    <article class="service-card">
-                        <div class="service-number">02</div>
-                        <h3>Jewelry Repair</h3>
+                    <article class="service-card" role="listitem" aria-labelledby="service-jewelry">
+                        <div class="service-number" aria-hidden="true">02</div>
+                        <h3 id="service-jewelry">Jewelry Repair</h3>
                         <p>Skilled craftsmanship to restore and preserve your most precious pieces.</p>
                         <ul class="service-list">
                             <li>Ring resizing</li>
@@ -1175,9 +1246,9 @@
                             <li>Professional cleaning</li>
                         </ul>
                     </article>
-                    <article class="service-card">
-                        <div class="service-number">03</div>
-                        <h3>We Buy Gold</h3>
+                    <article class="service-card" role="listitem" aria-labelledby="service-gold">
+                        <div class="service-number" aria-hidden="true">03</div>
+                        <h3 id="service-gold">We Buy Gold</h3>
                         <p>Turn unwanted gold into cash with fair, honest appraisals.</p>
                         <ul class="service-list">
                             <li>Gold jewelry</li>
@@ -1191,88 +1262,97 @@
         </section>
 
         <!-- Testimonials -->
-        <section class="testimonials" id="testimonials">
+        <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
             <div class="container">
                 <div class="section-header">
                     <div class="section-eyebrow"><span>Reviews</span></div>
-                    <h2 class="section-title">What <em>Customers</em> Say</h2>
+                    <h2 class="section-title" id="testimonials-heading">What <em>Customers</em> Say</h2>
                 </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial">
-                        <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonials-grid" role="list">
+                    <article class="testimonial" role="listitem">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-text">"Speedy service and a great price, for this I'm eternally grateful. Beyond fixing watches, Anthony really knows his craft. Highly recommend!"</p>
                         <div class="testimonial-author">— Yelp Reviewer</div>
-                    </div>
-                    <div class="testimonial">
-                        <div class="testimonial-stars">★★★★★</div>
+                    </article>
+                    <article class="testimonial" role="listitem">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-text">"Thanks so much for the fast and courteous service! I phoned eight different jewelry stores around Las Vegas for pricing, and Anthony's was the best by far."</p>
                         <div class="testimonial-author">— Verified Customer</div>
-                    </div>
-                    <div class="testimonial">
-                        <div class="testimonial-stars">★★★★★</div>
+                    </article>
+                    <article class="testimonial" role="listitem">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
                         <p class="testimonial-text">"I've been going to Anthony for years. Honest, fair prices, and excellent work. He fixed my watch that two other shops couldn't. A true professional."</p>
                         <div class="testimonial-author">— Local Customer</div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
-        <section class="contact" id="contact">
+        <section class="contact" id="contact" aria-labelledby="contact-heading">
             <div class="container">
                 <div class="section-header">
                     <div class="section-eyebrow"><span>Visit Us</span></div>
-                    <h2 class="section-title">Stop <em>By</em> Today</h2>
+                    <h2 class="section-title" id="contact-heading">Stop <em>By</em> Today</h2>
                 </div>
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <h3>We'd love to see you</h3>
                         <p>Walk-ins welcome. No appointment necessary. Bring your timepieces and jewelry—we'll give you an honest assessment and fair quote.</p>
-                        <ul class="contact-details">
-                            <li>
-                                <span class="contact-icon">📍</span>
-                                <div>
-                                    <div class="contact-label">Location</div>
-                                    <div class="contact-value"><a href="https://maps.google.com/?q=2633+Windmill+Pkwy,+Henderson,+NV+89074" target="_blank" rel="noopener noreferrer">2633 Windmill Pkwy<br>Henderson, NV 89074</a></div>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="contact-icon">📞</span>
-                                <div>
-                                    <div class="contact-label">Phone</div>
-                                    <div class="contact-value"><a href="tel:+17027950304">(702) 795-0304</a></div>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="contact-icon">💬</span>
-                                <div>
-                                    <div class="contact-label">Language</div>
-                                    <div class="contact-value">Se habla español</div>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="contact-icon">🕐</span>
-                                <div>
-                                    <div class="contact-label">Hours</div>
-                                    <div class="hours-grid">
-                                        <span>Mon</span><span>10am – 6pm</span>
-                                        <span>Tue</span><span>10am – 6pm</span>
-                                        <span>Wed</span><span>10am – 6pm</span>
-                                        <span>Thu</span><span>10am – 6pm</span>
-                                        <span>Fri</span><span>10am – 6pm</span>
-                                        <span>Sat</span><span>10am – 6pm</span>
-                                        <span>Sun</span><span class="hours-closed">Closed</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <dl class="contact-details">
+                            <div>
+                                <dt class="contact-label">
+                                    <span class="contact-icon" aria-hidden="true">📍</span>
+                                    Location
+                                </dt>
+                                <dd class="contact-value">
+                                    <a href="https://maps.google.com/?q=2633+Windmill+Pkwy,+Henderson,+NV+89074" target="_blank" rel="noopener noreferrer">
+                                        2633 Windmill Pkwy<br>Henderson, NV 89074
+                                        <span class="sr-only"> (opens in new tab)</span>
+                                    </a>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="contact-label">
+                                    <span class="contact-icon" aria-hidden="true">📞</span>
+                                    Phone
+                                </dt>
+                                <dd class="contact-value"><a href="tel:+17027950304">(702) 795-0304</a></dd>
+                            </div>
+                            <div>
+                                <dt class="contact-label">
+                                    <span class="contact-icon" aria-hidden="true">💬</span>
+                                    Language
+                                </dt>
+                                <dd class="contact-value">Se habla español</dd>
+                            </div>
+                            <div>
+                                <dt class="contact-label">
+                                    <span class="contact-icon" aria-hidden="true">🕐</span>
+                                    Hours
+                                </dt>
+                                <dd class="contact-value">
+                                    <table class="hours-table" aria-label="Business hours">
+                                        <tbody>
+                                            <tr><td>Monday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Tuesday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Wednesday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Thursday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Friday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Saturday</td><td>10am – 6pm</td></tr>
+                                            <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+                                        </tbody>
+                                    </table>
+                                </dd>
+                            </div>
+                        </dl>
                     </div>
                     <div class="contact-map">
                         <iframe 
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade"
-                            title="Anthony's Watch & Jewelry Repair location"
+                            title="Map showing Anthony's Watch & Jewelry Repair location at 2633 Windmill Pkwy, Henderson, NV 89074"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.8!2d-115.0914!3d36.0547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c0d0a0a0a0a0%3A0x0!2s2633%20Windmill%20Pkwy%2C%20Henderson%2C%20NV%2089074!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus">
                         </iframe>
                     </div>
@@ -1282,7 +1362,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span> • Family-owned since 1984</p>
     </footer>
 </body>

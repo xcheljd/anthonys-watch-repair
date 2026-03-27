@@ -1111,6 +1111,12 @@
                 </div>
                 <div class="logo-text"><span>Anthony's</span> Watch & Jewelry</div>
             </a>
+            <!-- Hamburger Button (Mobile Only) -->
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="#about" role="menuitem">About</a></li>
                 <li role="none"><a href="#services" role="menuitem">Services</a></li>
@@ -1119,6 +1125,23 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <ul class="mobile-menu-links" role="menu">
+            <li role="none"><a href="#about" role="menuitem">About</a></li>
+            <li role="none"><a href="#services" role="menuitem">Services</a></li>
+            <li role="none"><a href="#testimonials" role="menuitem">Reviews</a></li>
+            <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+    </div>
 
     <main id="main-content" role="main">
         <!-- Hero -->
@@ -1279,6 +1302,29 @@
             </div>
         </section>
 
+        <!-- Areas Served -->
+        <section class="areas-served" id="areas" aria-labelledby="areas-heading">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-eyebrow"><span>Our Reach</span></div>
+                    <h2 class="section-title" id="areas-heading">Serving the Las Vegas <em>Valley</em></h2>
+                </div>
+                <p class="areas-subtitle">Conveniently located in Henderson, serving customers from across the Las Vegas metro area.</p>
+                <div class="areas-grid" role="list">
+                    <span class="area-tag" role="listitem">Henderson</span>
+                    <span class="area-tag" role="listitem">Las Vegas</span>
+                    <span class="area-tag" role="listitem">Summerlin</span>
+                    <span class="area-tag" role="listitem">Green Valley</span>
+                    <span class="area-tag" role="listitem">Anthem</span>
+                    <span class="area-tag" role="listitem">Boulder City</span>
+                    <span class="area-tag" role="listitem">Paradise</span>
+                    <span class="area-tag" role="listitem">Spring Valley</span>
+                    <span class="area-tag" role="listitem">Enterprise</span>
+                    <span class="area-tag" role="listitem">Whitney Ranch</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section class="contact" id="contact" aria-labelledby="contact-heading">
             <div class="container">
@@ -1323,6 +1369,7 @@
                                     Hours
                                 </dt>
                                 <dd class="contact-value">
+                                    <div id="hours-status" class="hours-status" aria-live="polite"></div>
                                     <table class="hours-table" aria-label="Business hours">
                                         <tbody>
                                             <tr><td>Monday</td><td>10am – 6pm</td></tr>
@@ -1354,7 +1401,65 @@
 
     <!-- Footer -->
     <footer role="contentinfo">
-        <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span> • Family-owned since 1984</p>
+        <div class="footer-content">
+            <div class="footer-column footer-brand">
+                <a href="#" class="footer-logo" aria-label="Anthony's Watch & Jewelry Repair - Home">
+                    <div class="logo-mark" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" aria-hidden="true">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a227" stroke-width="0.5" stroke-dasharray="2 4"/>
+                            <circle cx="50" cy="50" r="3" fill="#c9a227"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text"><span>Anthony's</span> Watch & Jewelry</div>
+                </a>
+                <p class="footer-tagline">Precision timepiece & jewelry repair since 1984</p>
+            </div>
+            <div class="footer-column footer-links">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-social">
+                <h4 class="footer-heading">Find Us</h4>
+                <div class="social-links">
+                    <a href="https://maps.google.com/?q=2633+Windmill+Pkwy,+Henderson,+NV+89074" target="_blank" rel="noopener noreferrer" aria-label="Find us on Google Maps" class="social-link">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Google</span>
+                    </a>
+                    <a href="https://www.yelp.com/biz/anthonys-watch-and-jewelry-repair-henderson" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Yelp" class="social-link">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.41 16.09v-4.04l3.64 1.91c-1.03.99-2.41 1.57-3.64 2.13zm0-5.55V6.32c1.33.56 2.79 1.18 3.78 2.16l-3.78 4.06zm5.54 2.12l-1.21-.64-2.29-1.2 4.44-4.78c.61.82 1.03 1.77 1.22 2.79l-2.16 3.83zm-8.21-1.84l-2.17-3.83c.19-1.02.61-1.97 1.22-2.79l4.44 4.78-3.49 1.84z"/>
+                        </svg>
+                        <span>Yelp</span>
+                    </a>
+                    <a href="https://www.facebook.com/p/Anthonys-watch-and-jewelry-repair-100057428179364/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="social-link">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <span class="gold">Anthony's Watch & Jewelry Repair</span> • Family-owned since 1984</p>
+        </div>
     </footer>
-</body>
+
+    <!-- Floating Call Button (Mobile Only) -->
+    <a href="tel:+17027950304" class="floating-call-btn" aria-label="Call Anthony's Watch & Jewelry Repair">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+        </svg>
+        <span class="floating-call-label">Call</span>
+    </a>
+
+    <script>
 </html>

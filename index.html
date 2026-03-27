@@ -302,125 +302,6 @@
             color: var(--gold);
         }
 
-        /* Hamburger Button */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 32px;
-            height: 32px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-            z-index: 101;
-        }
-
-        .hamburger-line {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--gold);
-            border-radius: 1px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .hamburger.active .hamburger-line:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .hamburger.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active .hamburger-line:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 102;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 280px;
-            height: 100vh;
-            background: var(--navy);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 103;
-            padding: 5rem 2rem 2rem;
-            border-left: 1px solid rgba(201, 162, 39, 0.2);
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            color: var(--gold);
-            cursor: pointer;
-            transition: border-color 0.2s, background 0.2s;
-        }
-
-        .mobile-menu-close:hover {
-            border-color: var(--gold);
-            background: rgba(201, 162, 39, 0.1);
-        }
-
-        .mobile-menu-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .mobile-menu-links li {
-            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
-        }
-
-        .mobile-menu-links a {
-            display: block;
-            padding: 1.25rem 0;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: color 0.2s, padding-left 0.2s;
-        }
-
-        .mobile-menu-links a:hover,
-        .mobile-menu-links a:focus {
-            color: var(--gold);
-            padding-left: 0.5rem;
-        }
-
         .nav-links {
             display: flex;
             gap: 3rem;
@@ -1077,73 +958,6 @@
             opacity: 0.7;
         }
 
-        /* Dynamic Hours Status */
-        .hours-status {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding: 0.75rem 1rem;
-            background: rgba(201, 162, 39, 0.08);
-            border-left: 3px solid var(--gold);
-            font-size: 0.95rem;
-        }
-
-        .hours-status.open {
-            color: var(--navy);
-        }
-
-        .hours-status.closed {
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.03);
-            border-left-color: var(--text-muted);
-        }
-
-        /* Areas Served */
-        .areas-served {
-            background: var(--cream-warm);
-            padding: 5rem 3rem;
-        }
-
-        .areas-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        .areas-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .area-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.25rem;
-            background: var(--white);
-            border: 1px solid rgba(201, 162, 39, 0.2);
-            color: var(--navy);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .area-tag::before {
-            content: '◆';
-            color: var(--gold);
-            font-size: 0.6rem;
-        }
-
-        .area-tag:hover {
-            border-color: var(--gold);
-            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
-            transform: translateY(-2px);
-        }
-
         .contact-map {
             background: var(--navy);
             height: 400px;
@@ -1172,35 +986,6 @@
 
         footer .gold {
             color: var(--gold);
-        }
-
-        .footer-divider {
-            width: 60px;
-            height: 1px;
-            background: rgba(201, 162, 39, 0.3);
-            margin: 1.5rem auto;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .footer-social a {
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            transition: opacity 0.2s;
-        }
-
-        .footer-social a:hover,
-        .footer-social a:focus {
-            opacity: 0.8;
-            text-decoration: underline;
         }
 
         /* Visually Hidden (Screen Reader Only) */
@@ -1661,10 +1446,6 @@
                 padding: 3rem 1.5rem;
             }
 
-            .call-now-btn {
-                display: flex;
-            }
-
             .floating-call-btn {
                 display: flex;
             }
@@ -1899,15 +1680,12 @@
                 <div class="areas-grid" role="list">
                     <span class="area-tag" role="listitem">Henderson</span>
                     <span class="area-tag" role="listitem">Las Vegas</span>
-                    <span class="area-tag" role="listitem">Paradise</span>
                     <span class="area-tag" role="listitem">Summerlin</span>
+                    <span class="area-tag" role="listitem">Paradise</span>
                     <span class="area-tag" role="listitem">Spring Valley</span>
-                    <span class="area-tag" role="listitem">Green Valley</span>
                     <span class="area-tag" role="listitem">North Las Vegas</span>
-                    <span class="area-tag" role="listitem">Boulder City</span>
-                    <span class="area-tag" role="listitem">Enterprise</span>
-                    <span class="area-tag" role="listitem">Anthem</span>
-                    <span class="area-tag" role="listitem">Southwest Las Vegas</span>
+                    <span class="area-tag" role="listitem">Green Valley</span>
+                    <span class="area-tag" role="listitem">& Surrounding Communities</span>
                 </div>
             </div>
         </section>
@@ -2096,12 +1874,11 @@
             if (!hoursStatusEl) return;
 
             const now = new Date();
-            const pacificOptions = { timeZone: 'America/Los_Angeles' };
-            const day = parseInt(now.toLocaleString('en-US', { weekday: 'numeric', ...pacificOptions }));
-            const hour = parseInt(now.toLocaleString('en-US', { hour: 'numeric', hour12: false, ...pacificOptions }));
-            const minute = parseInt(now.toLocaleString('en-US', { minute: 'numeric', ...pacificOptions }));
+            // Get current time in Pacific timezone
+            const pacificTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+            const day = pacificTime.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+            const hour = pacificTime.getHours();
             
-            // Days: 0=Sun, 1=Mon, ..., 6=Sat
             // Hours: Mon-Sat 10am-6pm (10:00-18:00), Sun closed
             const isOpen = day !== 0 && hour >= 10 && hour < 18;
             const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

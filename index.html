@@ -302,6 +302,125 @@
             color: var(--gold);
         }
 
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 101;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 1px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 102;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 103;
+            padding: 5rem 2rem 2rem;
+            border-left: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            color: var(--gold);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .mobile-menu-close:hover {
+            border-color: var(--gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-menu-links li {
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1.25rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a:focus {
+            color: var(--gold);
+            padding-left: 0.5rem;
+        }
+
         .nav-links {
             display: flex;
             gap: 3rem;
@@ -958,6 +1077,73 @@
             opacity: 0.7;
         }
 
+        /* Dynamic Hours Status */
+        .hours-status {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(201, 162, 39, 0.08);
+            border-left: 3px solid var(--gold);
+            font-size: 0.95rem;
+        }
+
+        .hours-status.open {
+            color: var(--navy);
+        }
+
+        .hours-status.closed {
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.03);
+            border-left-color: var(--text-muted);
+        }
+
+        /* Areas Served */
+        .areas-served {
+            background: var(--cream-warm);
+            padding: 5rem 3rem;
+        }
+
+        .areas-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .area-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--white);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            color: var(--navy);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .area-tag::before {
+            content: '◆';
+            color: var(--gold);
+            font-size: 0.6rem;
+        }
+
+        .area-tag:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
+            transform: translateY(-2px);
+        }
+
         .contact-map {
             background: var(--navy);
             height: 400px;
@@ -988,6 +1174,35 @@
             color: var(--gold);
         }
 
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(201, 162, 39, 0.3);
+            margin: 1.5rem auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: opacity 0.2s;
+        }
+
+        .footer-social a:hover,
+        .footer-social a:focus {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
         /* Visually Hidden (Screen Reader Only) */
         .sr-only {
             position: absolute;
@@ -999,6 +1214,353 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 110;
+        }
+
+        .hamburger-line {
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 98;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            z-index: 99;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+            border-left: 1px solid rgba(201, 162, 39, 0.15);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--gold);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .mobile-menu-close:hover {
+            opacity: 0.7;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a:focus {
+            color: var(--gold);
+            padding-left: 0.5rem;
+        }
+
+        /* Floating Call Button */
+        .floating-call-btn {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 90;
+        }
+
+        .floating-call-btn:hover,
+        .floating-call-btn:focus {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(201, 162, 39, 0.5);
+        }
+
+        .floating-call-btn svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .floating-call-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(201, 162, 39, 0.7);
+            }
+        }
+
+        .floating-call-btn {
+            animation: pulse 2s ease-in-out infinite;
+            flex-direction: column;
+        }
+
+        /* Areas Served Section */
+        .areas-served {
+            background: var(--cream-warm);
+            padding: 5rem 3rem;
+        }
+
+        .areas-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .area-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--white);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .area-tag::before {
+            content: '📍';
+            font-size: 0.85rem;
+            speak: never;
+        }
+
+        .area-tag:hover {
+            border-color: var(--gold);
+            background: rgba(201, 162, 39, 0.05);
+        }
+
+        /* Hours Status */
+        .hours-status {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(201, 162, 39, 0.08);
+            border-left: 3px solid var(--gold);
+        }
+
+        .hours-status.closed {
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.03);
+            border-color: var(--text-muted);
+        }
+
+        /* Footer Enhanced */
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+        }
+
+        .footer-column {
+            text-align: left;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .footer-logo .logo-mark {
+            width: 36px;
+            height: 36px;
+        }
+
+        .footer-logo .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .footer-logo .logo-text span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .footer-nav a:hover,
+        .footer-nav a:focus {
+            color: var(--gold);
+            padding-left: 0.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold);
+            transition: transform 0.2s;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+            color: var(--gold);
+        }
+
+        .social-link:hover svg,
+        .social-link:focus svg {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            margin-top: 0;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
         }
 
         /* Responsive */
@@ -1049,6 +1611,10 @@
                 display: none;
             }
 
+            .hamburger {
+                display: flex;
+            }
+
             .hero-content {
                 padding: 7rem 1.5rem 3rem;
             }
@@ -1089,6 +1655,26 @@
 
             .service-card {
                 padding: 2rem 1.5rem;
+            }
+
+            .areas-served {
+                padding: 3rem 1.5rem;
+            }
+
+            .call-now-btn {
+                display: flex;
+            }
+
+            .floating-call-btn {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+
+            body.menu-open {
+                overflow: hidden;
             }
         }
     </style>
@@ -1313,14 +1899,15 @@
                 <div class="areas-grid" role="list">
                     <span class="area-tag" role="listitem">Henderson</span>
                     <span class="area-tag" role="listitem">Las Vegas</span>
-                    <span class="area-tag" role="listitem">Summerlin</span>
-                    <span class="area-tag" role="listitem">Green Valley</span>
-                    <span class="area-tag" role="listitem">Anthem</span>
-                    <span class="area-tag" role="listitem">Boulder City</span>
                     <span class="area-tag" role="listitem">Paradise</span>
+                    <span class="area-tag" role="listitem">Summerlin</span>
                     <span class="area-tag" role="listitem">Spring Valley</span>
+                    <span class="area-tag" role="listitem">Green Valley</span>
+                    <span class="area-tag" role="listitem">North Las Vegas</span>
+                    <span class="area-tag" role="listitem">Boulder City</span>
                     <span class="area-tag" role="listitem">Enterprise</span>
-                    <span class="area-tag" role="listitem">Whitney Ranch</span>
+                    <span class="area-tag" role="listitem">Anthem</span>
+                    <span class="area-tag" role="listitem">Southwest Las Vegas</span>
                 </div>
             </div>
         </section>
@@ -1455,11 +2042,103 @@
 
     <!-- Floating Call Button (Mobile Only) -->
     <a href="tel:+17027950304" class="floating-call-btn" aria-label="Call Anthony's Watch & Jewelry Repair">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
             <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
         </svg>
         <span class="floating-call-label">Call</span>
     </a>
 
     <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            hamburger.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Dynamic Hours Status
+        function updateHoursStatus() {
+            const hoursStatusEl = document.getElementById('hours-status');
+            if (!hoursStatusEl) return;
+
+            const now = new Date();
+            const pacificOptions = { timeZone: 'America/Los_Angeles' };
+            const day = parseInt(now.toLocaleString('en-US', { weekday: 'numeric', ...pacificOptions }));
+            const hour = parseInt(now.toLocaleString('en-US', { hour: 'numeric', hour12: false, ...pacificOptions }));
+            const minute = parseInt(now.toLocaleString('en-US', { minute: 'numeric', ...pacificOptions }));
+            
+            // Days: 0=Sun, 1=Mon, ..., 6=Sat
+            // Hours: Mon-Sat 10am-6pm (10:00-18:00), Sun closed
+            const isOpen = day !== 0 && hour >= 10 && hour < 18;
+            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            if (isOpen) {
+                hoursStatusEl.innerHTML = '<span class="hours-open">Open now — closes at 6pm today</span>';
+            } else {
+                let nextDay = day;
+                let daysToAdd = 1;
+                
+                // Find next open day
+                if (day === 0) {
+                    // Sunday, opens Monday
+                    nextDay = 1;
+                    daysToAdd = 1;
+                } else if (day === 6 && hour >= 18) {
+                    // Saturday after 6pm, opens Monday
+                    nextDay = 1;
+                    daysToAdd = 2;
+                } else if (hour >= 18) {
+                    // Weekday after 6pm, opens tomorrow
+                    nextDay = (day + 1) % 7;
+                    if (nextDay === 0) nextDay = 1; // Skip Sunday
+                    daysToAdd = nextDay === 1 && day !== 0 ? (day === 6 ? 2 : 1) : 1;
+                } else {
+                    // Before 10am, opens today
+                    daysToAdd = 0;
+                }
+                
+                const nextDayName = daysToAdd === 0 ? 'today' : dayNames[nextDay === 0 ? 1 : nextDay];
+                hoursStatusEl.innerHTML = `<span class="hours-closed-status">Closed — opens ${nextDayName} at 10am</span>`;
+            }
+        }
+
+        updateHoursStatus();
+        // Update every minute
+        setInterval(updateHoursStatus, 60000);
+    </script>
+</body>
 </html>

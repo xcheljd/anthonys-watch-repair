@@ -1230,9 +1230,9 @@
         /* Footer Enhanced */
         .footer-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding-bottom: 2rem;
             border-bottom: 1px solid rgba(201, 162, 39, 0.15);
@@ -1240,40 +1240,6 @@
 
         .footer-column {
             text-align: left;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .footer-logo .logo-mark {
-            width: 36px;
-            height: 36px;
-        }
-
-        .footer-logo .logo-text {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--white);
-        }
-
-        .footer-logo .logo-text span {
-            color: var(--gold);
-        }
-
-        .footer-tagline {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            line-height: 1.6;
         }
 
         .footer-heading {
@@ -1459,25 +1425,12 @@
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
-                text-align: center;
             }
 
             .footer-column {
-                text-align: center;
-            }
-
-            .footer-brand {
-                align-items: center;
-            }
-
-            .footer-logo {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
+                text-align: left;
             }
         }
     </style>
@@ -1789,19 +1742,6 @@
     <!-- Footer -->
     <footer role="contentinfo">
         <div class="footer-content">
-            <div class="footer-column footer-brand">
-                <a href="#" class="footer-logo" aria-label="Anthony's Watch & Jewelry Repair - Home">
-                    <div class="logo-mark" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" aria-hidden="true">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a227" stroke-width="1.5"/>
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a227" stroke-width="0.5" stroke-dasharray="2 4"/>
-                            <circle cx="50" cy="50" r="3" fill="#c9a227"/>
-                        </svg>
-                    </div>
-                    <div class="logo-text"><span>Anthony's</span> Watch & Jewelry</div>
-                </a>
-                <p class="footer-tagline">Precision timepiece & jewelry repair since 1984</p>
-            </div>
             <div class="footer-column footer-links">
                 <h4 class="footer-heading">Quick Links</h4>
                 <ul class="footer-nav">

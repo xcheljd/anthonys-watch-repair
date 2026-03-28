@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://xcheljd.github.io/anthonys-watch-repair/sitemap.xml

@@ -13,7 +13,6 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Master watchmakers and jewelers serving Henderson for 40+ years. Expert watch repair, jewelry repair, and gold buying. Family-owned since 1984.">
-    <meta name="keywords" content="watch repair, jewelry repair, Henderson NV, Las Vegas, gold buying, master watchmaker, antique watch repair, ring resizing, battery replacement, watch restoration">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="author" content="Anthony's Watch & Jewelry Repair">
@@ -152,7 +151,6 @@
         :root {
             --gold: #c9a227;
             --gold-light: #e8d48b;
-            --gold-glow: rgba(201, 162, 39, 0.3);
             --navy: #0d1020;
             --navy-light: #1a1f3c;
             --cream: #faf8f3;
@@ -198,13 +196,6 @@
         }
 
         /* Focus Styles */
-        a:focus,
-        button:focus,
-        [tabindex]:focus {
-            outline: var(--focus-outline);
-            outline-offset: var(--focus-offset);
-        }
-
         a:focus:not(:focus-visible),
         button:focus:not(:focus-visible) {
             outline: none;
@@ -280,14 +271,14 @@
 
         .logo-mark .hand {
             transform-origin: 50px 50px;
-            animation: tick 60s linear infinite;
+            animation: spin 60s linear infinite;
         }
 
         .logo-mark .hand-minute {
             animation-duration: 3600s;
         }
 
-        @keyframes tick {
+        @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
@@ -394,7 +385,7 @@
             stroke-width: 2;
             stroke-linecap: round;
             transform-origin: 250px 250px;
-            animation: hourHand 43200s linear infinite;
+            animation: spin 43200s linear infinite;
         }
 
         .hero-watch .hand-minute {
@@ -402,7 +393,7 @@
             stroke-width: 1.5;
             stroke-linecap: round;
             transform-origin: 250px 250px;
-            animation: minuteHand 3600s linear infinite;
+            animation: spin 3600s linear infinite;
         }
 
         .hero-watch .hand-second {
@@ -410,12 +401,9 @@
             stroke-width: 0.5;
             stroke-linecap: round;
             transform-origin: 250px 250px;
-            animation: secondHand 60s linear infinite;
+            animation: spin 60s linear infinite;
         }
 
-        @keyframes hourHand { to { transform: rotate(360deg); } }
-        @keyframes minuteHand { to { transform: rotate(360deg); } }
-        @keyframes secondHand { to { transform: rotate(360deg); } }
 
         .hero-content {
             position: relative;
@@ -1112,6 +1100,15 @@
             padding-left: 0.5rem;
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(201, 162, 39, 0.7);
+            }
+        }
+
         /* Floating Call Button */
         .floating-call-btn {
             display: none;
@@ -1129,6 +1126,8 @@
             box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
             z-index: 90;
+            flex-direction: column;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .floating-call-btn:hover,
@@ -1149,19 +1148,6 @@
             margin-top: 2px;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 30px rgba(201, 162, 39, 0.7);
-            }
-        }
-
-        .floating-call-btn {
-            animation: pulse 2s ease-in-out infinite;
-            flex-direction: column;
-        }
 
         /* Areas Served Section */
         .areas-served {
@@ -1846,33 +1832,24 @@
             const isOpen = day !== 0 && hour >= 10 && hour < 18;
             const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+            hoursStatusEl.classList.toggle('closed', !isOpen);
+
             if (isOpen) {
-                hoursStatusEl.innerHTML = '<span class="hours-open">Open now — closes at 6pm today</span>';
+                hoursStatusEl.textContent = 'Open now — closes at 6pm today';
             } else {
-                let nextDay = day;
-                let daysToAdd = 1;
+                let nextDay;
                 
-                // Find next open day
                 if (day === 0) {
-                    // Sunday, opens Monday
-                    nextDay = 1;
-                    daysToAdd = 1;
-                } else if (day === 6 && hour >= 18) {
-                    // Saturday after 6pm, opens Monday
-                    nextDay = 1;
-                    daysToAdd = 2;
+                    nextDay = 1; // Sunday -> Monday
                 } else if (hour >= 18) {
-                    // Weekday after 6pm, opens tomorrow
-                    nextDay = (day + 1) % 7;
-                    if (nextDay === 0) nextDay = 1; // Skip Sunday
-                    daysToAdd = nextDay === 1 && day !== 0 ? (day === 6 ? 2 : 1) : 1;
+                    // After hours: next day, skip Sunday
+                    nextDay = day === 6 ? 1 : day + 1;
                 } else {
-                    // Before 10am, opens today
-                    daysToAdd = 0;
+                    nextDay = day; // Before 10am, opens today
                 }
                 
-                const nextDayName = daysToAdd === 0 ? 'today' : dayNames[nextDay === 0 ? 1 : nextDay];
-                hoursStatusEl.innerHTML = `<span class="hours-closed-status">Closed — opens ${nextDayName} at 10am</span>`;
+                const nextDayName = nextDay === day ? 'today' : dayNames[nextDay];
+                hoursStatusEl.textContent = `Closed — opens ${nextDayName} at 10am`;
             }
         }
 

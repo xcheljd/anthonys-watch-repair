@@ -814,14 +814,15 @@
             padding: 2rem;
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+            border-top: 1px solid var(--gold);
         }
 
         .testimonial::before {
-            content: '"';
+            content: '\201C';
             font-family: var(--font-display);
             font-size: 8rem;
             color: var(--gold);
-            opacity: 0.1;
+            opacity: 0.15;
             position: absolute;
             top: -20px;
             left: 20px;
@@ -830,10 +831,19 @@
         }
 
         .testimonial-stars {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .testimonial-stars::before,
+        .testimonial-stars::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 162, 39, 0.25);
         }
 
         .testimonial-text {
@@ -845,9 +855,17 @@
         }
 
         .testimonial-author {
+            font-family: var(--font-display);
             font-weight: 600;
             color: var(--text-dark);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author::before {
+            content: '— ';
+            color: var(--gold);
+            font-style: normal;
         }
 
         /* Contact */
@@ -1607,24 +1625,24 @@
         <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-eyebrow"><span>Reviews</span></div>
+                    <div class="section-eyebrow"><span>Kind Words</span></div>
                     <h2 class="section-title" id="testimonials-heading">What <em>Customers</em> Say</h2>
                 </div>
                 <div class="testimonials-grid" role="list">
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars"><span class="sr-only">5 out of 5 stars</span><span aria-hidden="true">◆</span></div>
                         <p class="testimonial-text">"Speedy service and a great price, for this I'm eternally grateful. Beyond fixing watches, Anthony really knows his craft. Highly recommend!"</p>
-                        <div class="testimonial-author">— Yelp Reviewer</div>
+                        <div class="testimonial-author">Yelp Reviewer</div>
                     </article>
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars"><span class="sr-only">5 out of 5 stars</span><span aria-hidden="true">◆</span></div>
                         <p class="testimonial-text">"Thanks so much for the fast and courteous service! I phoned eight different jewelry stores around Las Vegas for pricing, and Anthony's was the best by far."</p>
-                        <div class="testimonial-author">— Verified Customer</div>
+                        <div class="testimonial-author">Verified Customer</div>
                     </article>
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars"><span class="sr-only">5 out of 5 stars</span><span aria-hidden="true">◆</span></div>
                         <p class="testimonial-text">"I've been going to Anthony for years. Honest, fair prices, and excellent work. He fixed my watch that two other shops couldn't. A true professional."</p>
-                        <div class="testimonial-author">— Local Customer</div>
+                        <div class="testimonial-author">Local Customer</div>
                     </article>
                 </div>
             </div>

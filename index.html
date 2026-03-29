@@ -1879,6 +1879,49 @@
         updateHoursStatus();
         // Update every minute
         setInterval(updateHoursStatus, 60000);
+
+        // Real-time Clock Animation
+        function updateClocks() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+            
+            // Calculate angles (with smooth transitions for seconds)
+            const secondAngle = seconds * 6; // 360/60 = 6° per second
+            const minuteAngle = minutes * 6 + seconds * 0.1; // Smooth minute movement
+            const hourAngle = (hours % 12) * 30 + minutes * 0.5; // Smooth hour movement
+            
+            // Logo clock
+            // Hour hand drawn at 3 o'clock (90°), minute hand at 12 o'clock (0°)
+            const logoHour = document.querySelector('.logo-mark .hand-hour');
+            const logoMinute = document.querySelector('.logo-mark .hand-minute');
+            
+            if (logoHour) logoHour.style.transform = `rotate(${hourAngle - 90}deg)`;
+            if (logoMinute) logoMinute.style.transform = `rotate(${minuteAngle}deg)`;
+            
+            // Hero clock
+            // Hour hand drawn at 12 o'clock (0°), minute hand at 3 o'clock (90°), second hand at 12 o'clock (0°)
+            const heroHour = document.querySelector('.hero-watch .hand-hour');
+            const heroMinute = document.querySelector('.hero-watch .hand-minute');
+            const heroSecond = document.querySelector('.hero-watch .hand-second');
+            
+            if (heroHour) heroHour.style.transform = `rotate(${hourAngle}deg)`;
+            if (heroMinute) heroMinute.style.transform = `rotate(${minuteAngle - 90}deg)`;
+            if (heroSecond) heroSecond.style.transform = `rotate(${secondAngle}deg)`;
+        }
+
+        // Disable CSS animations and start JS clock control
+        function initClocks() {
+            const hands = document.querySelectorAll('.logo-mark .hand, .hero-watch .hand-hour, .hero-watch .hand-minute, .hero-watch .hand-second');
+            hands.forEach(hand => {
+                hand.style.animation = 'none';
+            });
+            updateClocks();
+            setInterval(updateClocks, 1000);
+        }
+
+        initClocks();
     </script>
 </body>
 </html>

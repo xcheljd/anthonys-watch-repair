@@ -798,22 +798,36 @@
             speak: never;
         }
 
-        /* Testimonials */
+        /* Testimonials Carousel */
         .testimonials {
             background: var(--cream-warm);
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        .carousel-wrapper {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .testimonial {
+            flex: 0 0 100%;
             background: var(--navy);
             padding: 2.5rem;
             position: relative;
-            border-top: none;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .testimonial::before {
@@ -843,12 +857,88 @@
             color: var(--gold);
             font-size: 1.1rem;
             font-style: italic;
+            margin-top: auto;
         }
 
         .testimonial-author::before {
             content: '— ';
             color: rgba(255, 255, 255, 0.4);
             font-style: normal;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            color: var(--gold);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+            padding: 0;
+        }
+
+        .carousel-btn:hover,
+        .carousel-btn:focus {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+        }
+
+        .carousel-btn:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-offset);
+        }
+
+        .carousel-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .carousel-prev {
+            left: -60px;
+        }
+
+        .carousel-next {
+            right: -60px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--gold);
+        }
+
+        .carousel-dot:hover,
+        .carousel-dot:focus {
+            background: rgba(201, 162, 39, 0.5);
+        }
+
+        .carousel-dot:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-offset);
         }
 
         /* Contact */
@@ -1320,8 +1410,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .carousel-prev {
+                left: -50px;
+            }
+
+            .carousel-next {
+                right: -50px;
             }
 
             .about-grid,
@@ -1397,6 +1491,27 @@
 
             .areas-served {
                 padding: 3rem 1.5rem;
+            }
+
+            .carousel-wrapper {
+                max-width: 100%;
+            }
+
+            .carousel-prev {
+                left: 0;
+            }
+
+            .carousel-next {
+                right: 0;
+            }
+
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+            }
+
+            .testimonial {
+                padding: 2rem;
             }
 
             .floating-call-btn {
@@ -1611,19 +1726,34 @@
                     <div class="section-eyebrow"><span>Kind Words</span></div>
                     <h2 class="section-title" id="testimonials-heading">What <em>Customers</em> Say</h2>
                 </div>
-                <div class="testimonials-grid" role="list">
-                    <article class="testimonial" role="listitem">
-                        <p class="testimonial-text">"Speedy service and a great price, for this I'm eternally grateful. Beyond fixing watches, Anthony really knows his craft. Highly recommend!"</p>
-                        <div class="testimonial-author">Yelp Reviewer</div>
-                    </article>
-                    <article class="testimonial" role="listitem">
-                        <p class="testimonial-text">"Thanks so much for the fast and courteous service! I phoned eight different jewelry stores around Las Vegas for pricing, and Anthony's was the best by far."</p>
-                        <div class="testimonial-author">Verified Customer</div>
-                    </article>
-                    <article class="testimonial" role="listitem">
-                        <p class="testimonial-text">"I've been going to Anthony for years. Honest, fair prices, and excellent work. He fixed my watch that two other shops couldn't. A true professional."</p>
-                        <div class="testimonial-author">Local Customer</div>
-                    </article>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn carousel-prev" aria-label="Previous testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-track">
+                        <div class="carousel-inner" id="carousel-inner">
+                            <article class="testimonial" role="group" aria-label="Testimonial 1 of 3">
+                                <p class="testimonial-text">"Speedy service and a great price, for this I'm eternally grateful. Beyond fixing watches, Anthony really knows his craft. Highly recommend!"</p>
+                                <div class="testimonial-author">Yelp Reviewer</div>
+                            </article>
+                            <article class="testimonial" role="group" aria-label="Testimonial 2 of 3">
+                                <p class="testimonial-text">"Thanks so much for the fast and courteous service! I phoned eight different jewelry stores around Las Vegas for pricing, and Anthony's was the best by far."</p>
+                                <div class="testimonial-author">Verified Customer</div>
+                            </article>
+                            <article class="testimonial" role="group" aria-label="Testimonial 3 of 3">
+                                <p class="testimonial-text">"I've been going to Anthony for years. Honest, fair prices, and excellent work. He fixed my watch that two other shops couldn't. A true professional."</p>
+                                <div class="testimonial-author">Local Customer</div>
+                            </article>
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-next" aria-label="Next testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                    <div class="carousel-dots" role="tablist" aria-label="Testimonial navigation">
+                        <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+                        <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+                        <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1904,6 +2034,75 @@
         }
 
         initClocks();
+
+        // Testimonials Carousel
+        (function() {
+            const inner = document.getElementById('carousel-inner');
+            const cards = inner.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const total = cards.length;
+            let current = 0;
+            let startX = 0;
+            let isDragging = false;
+
+            function goTo(index) {
+                current = ((index % total) + total) % total;
+                inner.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === current);
+                    dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+                });
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => goTo(i));
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const section = document.getElementById('testimonials');
+                if (!section) return;
+                const rect = section.getBoundingClientRect();
+                const inView = rect.top < window.innerHeight && rect.bottom > 0;
+                if (!inView) return;
+                if (e.key === 'ArrowLeft') goTo(current - 1);
+                if (e.key === 'ArrowRight') goTo(current + 1);
+            });
+
+            // Touch swipe
+            inner.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            inner.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) goTo(current + 1);
+                    else goTo(current - 1);
+                }
+            }, { passive: true });
+
+            // Auto-rotate every 6 seconds, pause on hover/focus
+            const wrapper = document.querySelector('.carousel-wrapper');
+            let autoTimer = setInterval(() => goTo(current + 1), 6000);
+
+            wrapper.addEventListener('mouseenter', () => clearInterval(autoTimer));
+            wrapper.addEventListener('mouseleave', () => {
+                autoTimer = setInterval(() => goTo(current + 1), 6000);
+            });
+            wrapper.addEventListener('focusin', () => clearInterval(autoTimer));
+            wrapper.addEventListener('focusout', () => {
+                autoTimer = setInterval(() => goTo(current + 1), 6000);
+            });
+        })();
     </script>
 </body>
 </html>

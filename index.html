@@ -810,45 +810,28 @@
         }
 
         .testimonial {
-            background: var(--white);
-            padding: 2rem;
+            background: var(--navy);
+            padding: 2.5rem;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
-            border-top: 1px solid var(--gold);
+            border-top: none;
         }
 
         .testimonial::before {
             content: '\201C';
             font-family: var(--font-display);
-            font-size: 8rem;
+            font-size: 5rem;
             color: var(--gold);
-            opacity: 0.3;
+            opacity: 0.5;
             position: absolute;
-            top: -20px;
-            left: 20px;
+            top: 10px;
+            left: 24px;
             line-height: 1;
             speak: never;
         }
 
-        .testimonial-divider {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
-        }
-
-        .testimonial-divider::before,
-        .testimonial-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(201, 162, 39, 0.25);
-        }
-
         .testimonial-text {
             font-size: 1.05rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.8;
             margin-bottom: 2rem;
             font-style: italic;
@@ -857,14 +840,14 @@
         .testimonial-author {
             font-family: var(--font-display);
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--gold);
             font-size: 1.1rem;
             font-style: italic;
         }
 
         .testimonial-author::before {
             content: '— ';
-            color: var(--gold);
+            color: rgba(255, 255, 255, 0.4);
             font-style: normal;
         }
 
@@ -1630,17 +1613,14 @@
                 </div>
                 <div class="testimonials-grid" role="list">
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-divider" aria-hidden="true">◆</div>
                         <p class="testimonial-text">"Speedy service and a great price, for this I'm eternally grateful. Beyond fixing watches, Anthony really knows his craft. Highly recommend!"</p>
                         <div class="testimonial-author">Yelp Reviewer</div>
                     </article>
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-divider" aria-hidden="true">◆</div>
                         <p class="testimonial-text">"Thanks so much for the fast and courteous service! I phoned eight different jewelry stores around Las Vegas for pricing, and Anthony's was the best by far."</p>
                         <div class="testimonial-author">Verified Customer</div>
                     </article>
                     <article class="testimonial" role="listitem">
-                        <div class="testimonial-divider" aria-hidden="true">◆</div>
                         <p class="testimonial-text">"I've been going to Anthony for years. Honest, fair prices, and excellent work. He fixed my watch that two other shops couldn't. A true professional."</p>
                         <div class="testimonial-author">Local Customer</div>
                     </article>
